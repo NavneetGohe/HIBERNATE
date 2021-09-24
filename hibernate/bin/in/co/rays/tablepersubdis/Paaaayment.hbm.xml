@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21 Sep, 2021 5:50:49 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="in.co.rays.tablepersubdis.Paaaayment" table="PAAAAYMENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <discriminator column="PAAAAYMENT_TYPE" type="string"></discriminator>
+        <property name="Payment_type" type="java.lang.String">
+            <column name="PAYMENT_TYPE" />
+        </property>
+        <property name="amount" type="int">
+            <column name="AMOUNT" />
+        </property>
+        <subclass name="in.co.rays.tablepersubdis.CreeeditCard" discriminator-value="CREDIT"><join table="CREDIT_PAAAAYMENT"><key column="PAAAAMENT_ID"></key>
+        </join>
+        </subclass>
+        <subclass name="in.co.rays.tablepersubdis.Cheeeque" discriminator-value="CHEEEQUE"><join table="CHEEEQUE_PAAAAYMENT"><key column="PAAAAMENT_ID"></key>
+        </join>
+        </subclass>
+         <subclass name="in.co.rays.tablepersubdis.Caaasssh" discriminator-value="Caaasssh"><join table="Caaasssh_PAAAAYMENT"><key column="PAAAAMENT_ID"></key>
+        </join>
+        </subclass>
+    </class>
+</hibernate-mapping>

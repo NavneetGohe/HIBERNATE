@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 21 Sep, 2021 4:58:57 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="in.co.tablepersubclass.Paymentzz" table="PAYMENTZZ">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="amount" type="int">
+            <column name="AMOUNT" />
+        </property>
+        <joined-subclass name="in.co.tablepersubclass.CreditCard" table="CREDIT_PAYMENTZZ" ><key column="PAYMENTZZ_ID"></key><property name="cctype"></property>
+        </joined-subclass>
+        <joined-subclass name="in.co.tablepersubclass.Chequezz" table="CHEQUEZZ_PAYMENT"><key column="PAYMENTZZ_ID"></key><property name="cheq_nmb"></property>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
